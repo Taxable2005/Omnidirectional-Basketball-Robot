@@ -1,0 +1,41 @@
+frequency: 50
+sensor_timeout: 0.1
+two_d_mode: true
+publish_tf: true
+
+map_frame: map
+odom_frame: odom
+base_link_frame: base_link
+world_frame: odom
+
+# ====================== IMU ======================
+imu0: /imu/data
+imu0_config: [false, false, false,  # x y z position
+              true,  true,  true,   # x y z orientation
+              false, false, false, # linear velocity
+              false, false, true]  # angular velocity z only
+
+imu0_differential: false
+imu0_relative: true
+imu0_queue_size: 10
+imu0_nodelay: false
+imu0_remove_gravitational_acceleration: true
+
+# Reject outliers from orientation and angular velocity
+imu0_pose_rejection_threshold: 5.0              # (in meters, ignored here)
+imu0_orientation_rejection_threshold: 0.8       # (in radians ~45°)
+imu0_angular_velocity_rejection_threshold: 1.0  # (in rad/s)
+
+# ====================== Odometry ======================
+odom0: /odom/raw
+odom0_config: [true,  true,  false,  # x y z position
+               false, false, false, # x y z orientation
+               false, false, false, # x y z linear velocity
+               false, false, false] # x y z angular velocity
+
+odom0_differential: false
+
+# ====================== Debug Options ======================
+print_diagnostics: true
+debug: true
+debug_out_file: /tmp/ekf_debug.txt

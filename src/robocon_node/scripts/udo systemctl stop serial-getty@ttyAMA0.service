@@ -1,0 +1,6 @@
+● serial-getty@ttyAMA0.service - Serial Getty on ttyAMA0
+     Loaded: loaded (/lib/systemd/system/serial-getty@.service; disabled; vendor preset: enabled)
+     Active: inactive (dead)
+       Docs: man:agetty(8)
+             man:systemd-getty-generator(8)
+             http://0pointer.de/blog/projects/serial-console.html

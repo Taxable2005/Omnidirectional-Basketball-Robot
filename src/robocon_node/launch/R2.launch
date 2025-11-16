@@ -1,0 +1,22 @@
+<launch>
+    <!-- PS4 Conversion Node -->
+    <node pkg="robocon_node" type="ps4_conversion.py" name="ps4_conversion" output="screen" />
+
+    <!-- Computation Node -->
+    <node pkg="robocon_node" type="computation.py" name="computation" output="screen" />
+
+    <!-- Motor Control Node -->
+    <node pkg="robocon_node" type="motor_control.py" name="motor_control" output="screen" />
+
+    <!-- BNO055 Data Node -->
+    <node pkg="robocon_node" type="bno055_data.py" name="bno055_data" output="screen" />
+
+    <!-- Coordinates Node -->
+    <node pkg="robocon_node" type="coordinates.py" name="coordinates" output="screen" />
+
+    <!-- Encoder Data Node -->
+    <node pkg="robocon_node" type="encoder_data.py" name="encoder_data" output="screen" />
+
+    <!-- PS4 Controller Joy Node -->
+    <node pkg="joy" type="joy_node" name="joy_node" output="screen" />
+</launch>

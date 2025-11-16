@@ -1,0 +1,5 @@
+ros-imu-bno055
+/home/innovation/robocon/devel/.private/imu_bno055/lib/pkgconfig/imu_bno055.pc /home/innovation/robocon/devel/lib/pkgconfig/imu_bno055.pc
+/home/innovation/robocon/devel/.private/imu_bno055/lib/imu_bno055/bno055_i2c_node /home/innovation/robocon/devel/lib/imu_bno055/bno055_i2c_node
+/home/innovation/robocon/devel/.private/imu_bno055/share/imu_bno055/cmake/imu_bno055Config.cmake /home/innovation/robocon/devel/share/imu_bno055/cmake/imu_bno055Config.cmake
+/home/innovation/robocon/devel/.private/imu_bno055/share/imu_bno055/cmake/imu_bno055Config-version.cmake /home/innovation/robocon/devel/share/imu_bno055/cmake/imu_bno055Config-version.cmake

@@ -1,0 +1,5 @@
+joystick_drivers/spacenav_node
+/home/innovation/robocon/devel/.private/spacenav_node/lib/pkgconfig/spacenav_node.pc /home/innovation/robocon/devel/lib/pkgconfig/spacenav_node.pc
+/home/innovation/robocon/devel/.private/spacenav_node/lib/spacenav_node/spacenav_node /home/innovation/robocon/devel/lib/spacenav_node/spacenav_node
+/home/innovation/robocon/devel/.private/spacenav_node/share/spacenav_node/cmake/spacenav_nodeConfig.cmake /home/innovation/robocon/devel/share/spacenav_node/cmake/spacenav_nodeConfig.cmake
+/home/innovation/robocon/devel/.private/spacenav_node/share/spacenav_node/cmake/spacenav_nodeConfig-version.cmake /home/innovation/robocon/devel/share/spacenav_node/cmake/spacenav_nodeConfig-version.cmake

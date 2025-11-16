@@ -1,0 +1,40 @@
+cmake_minimum_required(VERSION 3.0.2)
+project(robocon_node)
+
+## Add required packages
+find_package(catkin REQUIRED COMPONENTS
+  roscpp
+  std_msgs
+  message_generation
+)
+
+## Declare your message files (already done)
+add_message_files(
+  FILES
+  encoder_reading.msg
+)
+
+## Generate added messages
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+)
+
+## Declare catkin package
+catkin_package(
+  CATKIN_DEPENDS roscpp std_msgs message_runtime
+)
+
+include_directories(
+  ${catkin_INCLUDE_DIRS}
+)
+
+## Add your node executable
+add_executable(encoder_uart_node src/encoder_uart_node.cpp)
+
+add_dependencies(encoder_uart_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+
+target_link_libraries(encoder_uart_node
+  ${catkin_LIBRARIES}
+  serial
+)
