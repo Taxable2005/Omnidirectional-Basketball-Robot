@@ -1,0 +1,63 @@
+#!/usr/bin/env python3
+
+import rospy
+from std_msgs.msg import Float32
+import board, busio
+from adafruit_bno08x.i2c import BNO08X_I2C
+import adafruit_bno08x
+import math, time
+from collections import deque
+
+def quaternion_to_yaw(w, x, y, z):
+    yaw_rad = math.atan2(2*(w*z + x*y), 1 - 2*(y*y + z*z))
+    return math.degrees(yaw_rad)
+
+def try_init():
+    try:
+        i2c = busio.I2C(board.SCL, board.SDA, frequency=400000)
+        imu = BNO08X_I2C(i2c, address=0x4A)
+        imu.enable_feature(adafruit_bno08x.BNO_REPORT_ROTATION_VECTOR)
+        rospy.loginfo("✅ BNO085 initialized")
+        return imu
+    except Exception as e:
+        rospy.logwarn(f"⚠️ BNO085 init failed: {e}")
+        return None
+
+def main():
+    rospy.init_node('bno085_yaw', anonymous=True)
+    pub = rospy.Publisher('/bno055_data', Float32, queue_size=10)
+    imu = try_init()
+    rate = rospy.Rate(50)  # 50 Hz
+
+    alpha = 0.1
+    median_window = deque(maxlen=5)
+    filtered = None
+
+    while not rospy.is_shutdown():
+        if imu is None:
+            imu = try_init()
+            time.sleep(1)
+            rate.sleep()
+            continue
+
+        try:
+            q = imu.quaternion
+            if q is None:
+                rate.sleep()
+                continue
+            w, x, y, z = q
+            yaw = quaternion_to_yaw(w, x, y, z)
+            median_window.append(yaw)
+            med = sorted(median_window)[len(median_window)//2]
+            filtered = med if filtered is None else alpha * med + (1-alpha)*filtered
+            pub.publish(Float32(data=filtered))
+        except Exception as e:
+            rospy.logwarn_throttle(1, f"Read failed: {e}")
+            imu = None
+            time.sleep(1)
+
+        rate.sleep()
+
+if __name__ == '__main__':
+    try: main()
+    except rospy.ROSInterruptException: pass

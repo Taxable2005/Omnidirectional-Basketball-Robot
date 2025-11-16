@@ -1,0 +1,20 @@
+<launch>
+    <!-- Launch joy_node -->
+    <node pkg="joy" type="joy_node" name="joy_node" output="screen">
+        <param name="dev" value="/dev/input/js0" />
+        <param name="deadzone" value="0.1" />
+        <param name="autorepeat_rate" value="20" />
+    </node>
+
+    <!-- PS4 data converter -->
+    <node pkg="robocon_node" type="ps4_conversion.py" name="ps4_conversion" output="screen" />
+
+    <!-- Computation Node (inverse kinematics + PID) -->
+    <node pkg="robocon_node" type="computation.py" name="computation" output="screen" />
+
+    <!-- Motor Control Node -->
+    <node pkg="robocon_node" type="motor_control.py" name="motor_control" output="screen" />
+
+    <!-- Shooting Node -->
+    <node pkg="robocon_node" type="upper_control.py" name="upper_control" output="screen"/>
+</launch>

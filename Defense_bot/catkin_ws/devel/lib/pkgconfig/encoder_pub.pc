@@ -1,0 +1,8 @@
+prefix=/home/robocon/catkin_ws/devel
+
+Name: encoder_pub
+Description: Description of encoder_pub
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

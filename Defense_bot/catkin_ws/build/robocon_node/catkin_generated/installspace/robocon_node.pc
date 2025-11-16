@@ -1,0 +1,8 @@
+prefix=/home/robocon/catkin_ws/install
+
+Name: robocon_node
+Description: Description of robocon_node
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

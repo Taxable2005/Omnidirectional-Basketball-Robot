@@ -1,0 +1,2 @@
+encoder_pub:esp32_com:motor_control:robocon_node:ros_bno08x
+-DCATKIN_DEVEL_PREFIX=/home/robocon/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/robocon/catkin_ws/install -G Unix Makefiles
