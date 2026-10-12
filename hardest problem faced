@@ -1,0 +1,9 @@
+## Biggest Challenge and How I Solved It
+
+One of the projects I'm most proud of is the omnidirectional basketball robot I worked on as part of a 20+ member team for Robocon.
+
+My contributions included motor control, sensor integration, and integrating different modules within the ROS environment.
+
+**Challenge:** One of the biggest challenges we faced was encoder slippage, which caused errors in wheel movement measurements. These errors accumulated over time, leading to inaccurate position estimation. Despite trying different encoder mounting orientations and adjustments, the issue persisted.
+
+**Solution:** We addressed this by incorporating LiDAR measurements alongside encoder feedback to improve the robot's position estimation and make it more reliable.
